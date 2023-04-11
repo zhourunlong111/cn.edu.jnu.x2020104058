@@ -10,19 +10,20 @@ public class BowlingGame {
 
     public int score() {
         int totalScore=0;
-        for(int scoreIndex=0;scoreIndex<_pins.length;scoreIndex++){
-            totalScore+=_pins[scoreIndex];
-            //如果是一个补中，就计算把下下个球的分数也计入当前轮次
-            if(scoreIndex<19)
-            {
-                if(isaSpare(scoreIndex)){
-                    totalScore+=_pins[scoreIndex+2];
-                }
-                if(isaStrike(scoreIndex)){
-                    totalScore+=_pins[scoreIndex+1];
-                    totalScore+=_pins[scoreIndex+2];
-                }
+        int currentFrameScoreIndex=0;
+        for(int currentFrame=0;currentFrame<10;currentFrame++){
+            totalScore+=_pins[currentFrameScoreIndex];
+            totalScore+=_pins[currentFrameScoreIndex+1];
+            if(isaStrike(currentFrameScoreIndex)){
+                totalScore+=_pins[currentFrameScoreIndex+2];
             }
+            else if(isaSpare(currentFrameScoreIndex)){
+                totalScore+=_pins[currentFrameScoreIndex+2];
+                currentFrameScoreIndex++;
+            }else{
+                currentFrameScoreIndex++;
+            }
+            currentFrameScoreIndex++;
         }
         return totalScore;
     }
