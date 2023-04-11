@@ -32,7 +32,7 @@ public class BowlingGameUnitTest {
         assertEquals(40,game.score());
     }
 
-    private void repeatedRoll(int times, int pin) {
+    private void repeatedRoll(int times, int pin) {//返回
         for(int i=0;i<times;i++){
             game.roll(pin);
         }
