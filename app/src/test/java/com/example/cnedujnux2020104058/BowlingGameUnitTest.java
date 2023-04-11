@@ -22,25 +22,25 @@ public class BowlingGameUnitTest {
     @Test
     public void test10ones()
     {
-        repeatedRoll(10, 1);
-        assertEquals(10, game.score());
+        repeatedRoll(10, 0);
+        assertEquals(0, game.score());
     }
     @Test
     public void test10twos()
     {
-        repeatedRoll(20,2);
-        assertEquals(40,game.score());
+        repeatedRoll(20,1);
+        assertEquals(20,game.score());
     }
 
     @Test
-    /*public void testASpare()
+    public void testASpare()
     {
         game.roll(3);
         game.roll(7);//扔了一个补中
         game.roll(5);
         repeatedRoll(17, 0);
-        assertEquals(10, game.score());
-    }*/
+        assertEquals(20, game.score());
+    }
 
     private void repeatedRoll(int times, int pin) {//返回
         for(int i=0;i<times;i++){
