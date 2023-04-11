@@ -10,6 +10,7 @@ public class BowlingGame {
 
     public int score() {
         int totalScore=0;
+        //设置轮次
         int currentFrameScoreIndex=0;
         for(int currentFrame=0;currentFrame<10;currentFrame++){
             totalScore+=_pins[currentFrameScoreIndex];
