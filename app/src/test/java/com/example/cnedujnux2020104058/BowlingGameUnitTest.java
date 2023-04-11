@@ -35,16 +35,35 @@ public class BowlingGameUnitTest {
     @Test
     public void testASpare()
     {
-        game.roll(3);
-        game.roll(7);//扔了一个补中
-        game.roll(5);
+        rollASpare();
+        rollAStrike(5);
         repeatedRoll(17, 0);
         assertEquals(20, game.score());
     }
 
+    @Test
+    public void testAStrike()
+    {
+        rollAStrike(10);
+        rollAStrike(3);
+        rollAStrike(4);
+
+        repeatedRoll(16, 0);
+        assertEquals(24, game.score());
+    }
+
+    private void rollAStrike(int i) {
+        game.roll(i);
+    }
+
+    private void rollASpare() {
+        rollAStrike(3);
+        rollAStrike(7);
+    }
+
     private void repeatedRoll(int times, int pin) {//返回
         for(int i=0;i<times;i++){
-            game.roll(pin);
+            rollAStrike(pin);
         }
     }
 }

@@ -15,11 +15,22 @@ public class BowlingGame {
             //如果是一个补中，就计算把下下个球的分数也计入当前轮次
             if(scoreIndex<19)
             {
-                if(10==_pins[scoreIndex]+_pins[scoreIndex+1]){
+                if(isaSpare(scoreIndex)){
+                    totalScore+=_pins[scoreIndex+2];
+                }
+                if(isaStrike(scoreIndex)){
+                    totalScore+=_pins[scoreIndex+1];
                     totalScore+=_pins[scoreIndex+2];
                 }
             }
         }
         return totalScore;
+    }
+
+    private boolean isaSpare(int scoreIndex) {
+        return 10==_pins[scoreIndex]+_pins[scoreIndex+1];
+    }
+    private boolean isaStrike(int scoreIndex) {
+        return 10==_pins[scoreIndex];
     }
 }
