@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='cn.edu.jnu.x2020104058'
